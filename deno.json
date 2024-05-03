@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "start": "deno run -A src/main.ts",
+    "compile": "deno compile -A --output invoicer src/main.ts"
+  }
+}

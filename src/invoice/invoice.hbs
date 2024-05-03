@@ -1,0 +1,102 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoicer</title>
+
+    <link rel="stylesheet" href="./invoice.css" />
+    <link rel="stylesheet" href="./normalize.css" />
+  </head>
+  <body class="web-container">
+    <h1>Invoice</h1>
+
+    <table>
+      <tr>
+        <td class="emphasised">Invoice Number</td>
+        <td>{{ invoiceNumber }}</td>
+      </tr>
+
+      <tr>
+        <td class="emphasised">Invoice Date</td>
+        <td>{{ billedDate }}</td>
+      </tr>
+
+      <tr>
+        <td class="emphasised">Due Date</td>
+        <td>{{ dueDate }}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td rowspan="4" class="emphasised">Billed To</td>
+        <td>{{ clientCompanyName }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ clientName }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ clientStreet }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ clientAddress }}</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td class="emphasised">Billed By</td>
+        <td>{{ ownName }}</td>
+      </tr>
+
+      <tr>
+        <td class="emphasised">Unified Identification Code (UIC)</td>
+        <td>{{ UIC }}</td>
+      </tr>
+    </table>
+
+    <table class="line-items-container">
+      <thead>
+        <tr>
+          <th class="heading-description">Description</th>
+          <th class="heading-quantity">Qty</th>
+          <th class="heading-price">Price</th>
+          <th class="heading-subtotal">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Part Time Daily Rate</td>
+          <td>{{ daysWorked }}</td>
+          <td class="right">${{ dailyRate }}</td>
+          <td class="bold">${{ total }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="line-items-container has-bottom-border">
+      <thead>
+        <tr>
+          <th>Payment Info</th>
+          <th>Due By</th>
+          <th>Total Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="payment-info">
+            <div>Account Holder: <strong>{{ ownName }}</strong></div>
+            <div>IBAN: <strong>{{ IBAN }}</strong></div>
+            <div>BIC/SWIFT: <strong>{{ BIC }}</strong></div>
+            <div>Bank: <strong>{{ bankName }}</strong></div>
+          </td>
+          <td>{{ dueDate }}</td>
+          <td class="large total">${{ total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
